@@ -1,0 +1,486 @@
+|BinaryAdderSubtractorVHDL
+A[0] => fivebitbinaryadder:Fivebitbinaryadder.a[0]
+A[1] => fivebitbinaryadder:Fivebitbinaryadder.a[1]
+A[2] => fivebitbinaryadder:Fivebitbinaryadder.a[2]
+A[3] => fivebitbinaryadder:Fivebitbinaryadder.a[3]
+A[4] => fivebitbinaryadder:Fivebitbinaryadder.a[4]
+B[0] => fivebitbinaryadder:Fivebitbinaryadder.b[0]
+B[1] => fivebitbinaryadder:Fivebitbinaryadder.b[1]
+B[2] => fivebitbinaryadder:Fivebitbinaryadder.b[2]
+B[3] => fivebitbinaryadder:Fivebitbinaryadder.b[3]
+B[4] => fivebitbinaryadder:Fivebitbinaryadder.b[4]
+M => fivebitbinaryadder:Fivebitbinaryadder.m
+RST => converter:converter.reset
+CLK => fivebitbinaryadder:Fivebitbinaryadder.clock
+CLK => signdetector:signdetector.clk
+CLK => converter:converter.clk
+CLK => bcd_to_7_segment:sevenseg1.clk_i
+CLK => bcd_to_7_segment:sevenseg2.clk_i
+CLK => bcd_to_7_segment:sevenseg3.clk_i
+SEVEN_SEG_1[0] << bcd_to_7_segment:sevenseg1.seven_seg[0]
+SEVEN_SEG_1[1] << bcd_to_7_segment:sevenseg1.seven_seg[1]
+SEVEN_SEG_1[2] << bcd_to_7_segment:sevenseg1.seven_seg[2]
+SEVEN_SEG_1[3] << bcd_to_7_segment:sevenseg1.seven_seg[3]
+SEVEN_SEG_1[4] << bcd_to_7_segment:sevenseg1.seven_seg[4]
+SEVEN_SEG_1[5] << bcd_to_7_segment:sevenseg1.seven_seg[5]
+SEVEN_SEG_1[6] << bcd_to_7_segment:sevenseg1.seven_seg[6]
+SEVEN_SEG_2[0] << bcd_to_7_segment:sevenseg2.seven_seg[0]
+SEVEN_SEG_2[1] << bcd_to_7_segment:sevenseg2.seven_seg[1]
+SEVEN_SEG_2[2] << bcd_to_7_segment:sevenseg2.seven_seg[2]
+SEVEN_SEG_2[3] << bcd_to_7_segment:sevenseg2.seven_seg[3]
+SEVEN_SEG_2[4] << bcd_to_7_segment:sevenseg2.seven_seg[4]
+SEVEN_SEG_2[5] << bcd_to_7_segment:sevenseg2.seven_seg[5]
+SEVEN_SEG_2[6] << bcd_to_7_segment:sevenseg2.seven_seg[6]
+SEVEN_SEG_3[0] << bcd_to_7_segment:sevenseg3.seven_seg[0]
+SEVEN_SEG_3[1] << bcd_to_7_segment:sevenseg3.seven_seg[1]
+SEVEN_SEG_3[2] << bcd_to_7_segment:sevenseg3.seven_seg[2]
+SEVEN_SEG_3[3] << bcd_to_7_segment:sevenseg3.seven_seg[3]
+SEVEN_SEG_3[4] << bcd_to_7_segment:sevenseg3.seven_seg[4]
+SEVEN_SEG_3[5] << bcd_to_7_segment:sevenseg3.seven_seg[5]
+SEVEN_SEG_3[6] << bcd_to_7_segment:sevenseg3.seven_seg[6]
+
+
+|BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder
+a[0] => fulladder:FA1.x
+a[1] => fulladder:FA2.x
+a[2] => fulladder:FA3.x
+a[3] => fulladder:FA4.x
+a[4] => fulladder:FA5.x
+b[0] => comb.IN0
+b[1] => comb.IN0
+b[2] => comb.IN0
+b[3] => comb.IN0
+b[4] => comb.IN0
+m => comb.IN1
+m => comb.IN1
+m => comb.IN1
+m => comb.IN1
+m => comb.IN1
+m => fulladder:FA1.z
+clock => fulladder:FA1.clk
+clock => fulladder:FA2.clk
+clock => fulladder:FA3.clk
+clock => fulladder:FA4.clk
+clock => fulladder:FA5.clk
+s[0] <= fulladder:FA1.s
+s[1] <= fulladder:FA2.s
+s[2] <= fulladder:FA3.s
+s[3] <= fulladder:FA4.s
+s[4] <= fulladder:FA5.s
+c[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c[2].DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c[3].DB_MAX_OUTPUT_PORT_TYPE
+c[4] <= c[4].DB_MAX_OUTPUT_PORT_TYPE
+c[5] <= c[5].DB_MAX_OUTPUT_PORT_TYPE
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA1
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA2
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA3
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA4
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA5
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector
+s_detect[0] => o.DATAB
+s_detect[0] => fivebitbinaryadder:adder.a[0]
+s_detect[1] => o.DATAB
+s_detect[1] => fivebitbinaryadder:adder.a[1]
+s_detect[2] => o.DATAB
+s_detect[2] => fivebitbinaryadder:adder.a[2]
+s_detect[3] => o.DATAB
+s_detect[3] => fivebitbinaryadder:adder.a[3]
+s_detect[4] => minus.DATAIN
+s_detect[4] => fivebitbinaryadder:adder.a[4]
+s_detect[4] => o.OUTPUTSELECT
+s_detect[4] => o.OUTPUTSELECT
+s_detect[4] => o.OUTPUTSELECT
+s_detect[4] => o.OUTPUTSELECT
+s_detect[4] => o.OUTPUTSELECT
+clk => fivebitbinaryadder:adder.clock
+minus <= s_detect[4].DB_MAX_OUTPUT_PORT_TYPE
+o[0] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o.DB_MAX_OUTPUT_PORT_TYPE
+o[4] <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder
+a[0] => fulladder:FA1.x
+a[1] => fulladder:FA2.x
+a[2] => fulladder:FA3.x
+a[3] => fulladder:FA4.x
+a[4] => fulladder:FA5.x
+b[0] => comb.IN0
+b[1] => comb.IN0
+b[2] => comb.IN0
+b[3] => comb.IN0
+b[4] => comb.IN0
+m => comb.IN1
+m => comb.IN1
+m => comb.IN1
+m => comb.IN1
+m => comb.IN1
+m => fulladder:FA1.z
+clock => fulladder:FA1.clk
+clock => fulladder:FA2.clk
+clock => fulladder:FA3.clk
+clock => fulladder:FA4.clk
+clock => fulladder:FA5.clk
+s[0] <= fulladder:FA1.s
+s[1] <= fulladder:FA2.s
+s[2] <= fulladder:FA3.s
+s[3] <= fulladder:FA4.s
+s[4] <= fulladder:FA5.s
+c[1] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+c[2] <= c[2].DB_MAX_OUTPUT_PORT_TYPE
+c[3] <= c[3].DB_MAX_OUTPUT_PORT_TYPE
+c[4] <= c[4].DB_MAX_OUTPUT_PORT_TYPE
+c[5] <= c[5].DB_MAX_OUTPUT_PORT_TYPE
+v <= v.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA1
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA2
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA3
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA4
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA5
+x => s.IN0
+x => c.IN0
+y => s.IN1
+y => c.IN1
+z => s.IN1
+z => c.IN1
+clk => c~reg0.CLK
+clk => s~reg0.CLK
+s <= s~reg0.DB_MAX_OUTPUT_PORT_TYPE
+c <= c~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|converter:converter
+clk => signal_integer2[0].CLK
+clk => signal_integer2[1].CLK
+clk => signal_integer2[2].CLK
+clk => signal_integer2[3].CLK
+clk => signal_integer1[0].CLK
+clk => signal_integer1[1].CLK
+clk => signal_integer1[2].CLK
+clk => signal_integer1[3].CLK
+clk => BCD_digit_3[0]~reg0.CLK
+clk => BCD_digit_3[1]~reg0.CLK
+clk => BCD_digit_3[2]~reg0.CLK
+clk => BCD_digit_3[3]~reg0.CLK
+clk => BCD_digit_2[0]~reg0.CLK
+clk => BCD_digit_2[1]~reg0.CLK
+clk => BCD_digit_2[2]~reg0.CLK
+clk => BCD_digit_2[3]~reg0.CLK
+clk => BCD_digit_1[0]~reg0.CLK
+clk => BCD_digit_1[1]~reg0.CLK
+clk => BCD_digit_1[2]~reg0.CLK
+clk => BCD_digit_1[3]~reg0.CLK
+reset => BCD_digit_3[0]~reg0.ACLR
+reset => BCD_digit_3[1]~reg0.PRESET
+reset => BCD_digit_3[2]~reg0.ACLR
+reset => BCD_digit_3[3]~reg0.PRESET
+reset => BCD_digit_2[0]~reg0.ACLR
+reset => BCD_digit_2[1]~reg0.ACLR
+reset => BCD_digit_2[2]~reg0.ACLR
+reset => BCD_digit_2[3]~reg0.ACLR
+reset => BCD_digit_1[0]~reg0.ACLR
+reset => BCD_digit_1[1]~reg0.ACLR
+reset => BCD_digit_1[2]~reg0.ACLR
+reset => BCD_digit_1[3]~reg0.ACLR
+reset => signal_integer1[3].ENA
+reset => signal_integer1[2].ENA
+reset => signal_integer1[1].ENA
+reset => signal_integer2[0].ENA
+reset => signal_integer1[0].ENA
+reset => signal_integer2[3].ENA
+reset => signal_integer2[2].ENA
+reset => signal_integer2[1].ENA
+v => BCD_digit_1.OUTPUTSELECT
+v => BCD_digit_1.OUTPUTSELECT
+v => BCD_digit_1.OUTPUTSELECT
+v => BCD_digit_1.OUTPUTSELECT
+v => BCD_digit_2.OUTPUTSELECT
+v => BCD_digit_2.OUTPUTSELECT
+v => BCD_digit_2.OUTPUTSELECT
+v => BCD_digit_2.OUTPUTSELECT
+v => BCD_digit_3.OUTPUTSELECT
+v => signal_integer1.OUTPUTSELECT
+v => signal_integer1.OUTPUTSELECT
+v => signal_integer1.OUTPUTSELECT
+v => signal_integer1.OUTPUTSELECT
+v => signal_integer2.OUTPUTSELECT
+v => signal_integer2.OUTPUTSELECT
+v => signal_integer2.OUTPUTSELECT
+v => signal_integer2.OUTPUTSELECT
+v => BCD_digit_3[2]~reg0.DATAIN
+minus_con => BCD_digit_3.DATAA
+data[0] => Mod0.IN9
+data[0] => Div0.IN8
+data[1] => Mod0.IN8
+data[1] => Div0.IN7
+data[2] => Mod0.IN7
+data[2] => Div0.IN6
+data[3] => Mod0.IN6
+data[3] => Div0.IN5
+data[4] => Mod0.IN5
+data[4] => Div0.IN4
+BCD_digit_1[0] <= BCD_digit_1[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_1[1] <= BCD_digit_1[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_1[2] <= BCD_digit_1[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_1[3] <= BCD_digit_1[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_2[0] <= BCD_digit_2[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_2[1] <= BCD_digit_2[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_2[2] <= BCD_digit_2[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_2[3] <= BCD_digit_2[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_3[0] <= BCD_digit_3[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_3[1] <= BCD_digit_3[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_3[2] <= BCD_digit_3[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+BCD_digit_3[3] <= BCD_digit_3[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|BCD_to_7_segment:sevenseg1
+BCD_i[0] => Mux0.IN19
+BCD_i[0] => Mux1.IN19
+BCD_i[0] => Mux2.IN19
+BCD_i[0] => Mux3.IN19
+BCD_i[0] => Mux4.IN19
+BCD_i[0] => Mux5.IN19
+BCD_i[0] => Mux6.IN19
+BCD_i[1] => Mux0.IN18
+BCD_i[1] => Mux1.IN18
+BCD_i[1] => Mux2.IN18
+BCD_i[1] => Mux3.IN18
+BCD_i[1] => Mux4.IN18
+BCD_i[1] => Mux5.IN18
+BCD_i[1] => Mux6.IN18
+BCD_i[2] => Mux0.IN17
+BCD_i[2] => Mux1.IN17
+BCD_i[2] => Mux2.IN17
+BCD_i[2] => Mux3.IN17
+BCD_i[2] => Mux4.IN17
+BCD_i[2] => Mux5.IN17
+BCD_i[2] => Mux6.IN17
+BCD_i[3] => Mux0.IN16
+BCD_i[3] => Mux1.IN16
+BCD_i[3] => Mux2.IN16
+BCD_i[3] => Mux3.IN16
+BCD_i[3] => Mux4.IN16
+BCD_i[3] => Mux5.IN16
+BCD_i[3] => Mux6.IN16
+clk_i => seven_seg[0]~reg0.CLK
+clk_i => seven_seg[1]~reg0.CLK
+clk_i => seven_seg[2]~reg0.CLK
+clk_i => seven_seg[3]~reg0.CLK
+clk_i => seven_seg[4]~reg0.CLK
+clk_i => seven_seg[5]~reg0.CLK
+clk_i => seven_seg[6]~reg0.CLK
+seven_seg[0] <= seven_seg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[1] <= seven_seg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[2] <= seven_seg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[3] <= seven_seg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[4] <= seven_seg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[5] <= seven_seg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[6] <= seven_seg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|BCD_to_7_segment:sevenseg2
+BCD_i[0] => Mux0.IN19
+BCD_i[0] => Mux1.IN19
+BCD_i[0] => Mux2.IN19
+BCD_i[0] => Mux3.IN19
+BCD_i[0] => Mux4.IN19
+BCD_i[0] => Mux5.IN19
+BCD_i[0] => Mux6.IN19
+BCD_i[1] => Mux0.IN18
+BCD_i[1] => Mux1.IN18
+BCD_i[1] => Mux2.IN18
+BCD_i[1] => Mux3.IN18
+BCD_i[1] => Mux4.IN18
+BCD_i[1] => Mux5.IN18
+BCD_i[1] => Mux6.IN18
+BCD_i[2] => Mux0.IN17
+BCD_i[2] => Mux1.IN17
+BCD_i[2] => Mux2.IN17
+BCD_i[2] => Mux3.IN17
+BCD_i[2] => Mux4.IN17
+BCD_i[2] => Mux5.IN17
+BCD_i[2] => Mux6.IN17
+BCD_i[3] => Mux0.IN16
+BCD_i[3] => Mux1.IN16
+BCD_i[3] => Mux2.IN16
+BCD_i[3] => Mux3.IN16
+BCD_i[3] => Mux4.IN16
+BCD_i[3] => Mux5.IN16
+BCD_i[3] => Mux6.IN16
+clk_i => seven_seg[0]~reg0.CLK
+clk_i => seven_seg[1]~reg0.CLK
+clk_i => seven_seg[2]~reg0.CLK
+clk_i => seven_seg[3]~reg0.CLK
+clk_i => seven_seg[4]~reg0.CLK
+clk_i => seven_seg[5]~reg0.CLK
+clk_i => seven_seg[6]~reg0.CLK
+seven_seg[0] <= seven_seg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[1] <= seven_seg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[2] <= seven_seg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[3] <= seven_seg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[4] <= seven_seg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[5] <= seven_seg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[6] <= seven_seg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|BinaryAdderSubtractorVHDL|BCD_to_7_segment:sevenseg3
+BCD_i[0] => Mux0.IN19
+BCD_i[0] => Mux1.IN19
+BCD_i[0] => Mux2.IN19
+BCD_i[0] => Mux3.IN19
+BCD_i[0] => Mux4.IN19
+BCD_i[0] => Mux5.IN19
+BCD_i[0] => Mux6.IN19
+BCD_i[1] => Mux0.IN18
+BCD_i[1] => Mux1.IN18
+BCD_i[1] => Mux2.IN18
+BCD_i[1] => Mux3.IN18
+BCD_i[1] => Mux4.IN18
+BCD_i[1] => Mux5.IN18
+BCD_i[1] => Mux6.IN18
+BCD_i[2] => Mux0.IN17
+BCD_i[2] => Mux1.IN17
+BCD_i[2] => Mux2.IN17
+BCD_i[2] => Mux3.IN17
+BCD_i[2] => Mux4.IN17
+BCD_i[2] => Mux5.IN17
+BCD_i[2] => Mux6.IN17
+BCD_i[3] => Mux0.IN16
+BCD_i[3] => Mux1.IN16
+BCD_i[3] => Mux2.IN16
+BCD_i[3] => Mux3.IN16
+BCD_i[3] => Mux4.IN16
+BCD_i[3] => Mux5.IN16
+BCD_i[3] => Mux6.IN16
+clk_i => seven_seg[0]~reg0.CLK
+clk_i => seven_seg[1]~reg0.CLK
+clk_i => seven_seg[2]~reg0.CLK
+clk_i => seven_seg[3]~reg0.CLK
+clk_i => seven_seg[4]~reg0.CLK
+clk_i => seven_seg[5]~reg0.CLK
+clk_i => seven_seg[6]~reg0.CLK
+seven_seg[0] <= seven_seg[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[1] <= seven_seg[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[2] <= seven_seg[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[3] <= seven_seg[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[4] <= seven_seg[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[5] <= seven_seg[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[6] <= seven_seg[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

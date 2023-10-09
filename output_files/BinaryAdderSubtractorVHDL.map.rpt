@@ -1,0 +1,541 @@
+Analysis & Synthesis report for BinaryAdderSubtractorVHDL
+Wed Sep 27 12:45:33 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Parameter Settings for User Entity Instance: fivebitbinaryadder:Fivebitbinaryadder
+ 12. Parameter Settings for User Entity Instance: signdetector:signdetector|fivebitbinaryadder:adder
+ 13. Parameter Settings for Inferred Entity Instance: converter:converter|lpm_divide:Mod0
+ 14. Parameter Settings for Inferred Entity Instance: converter:converter|lpm_divide:Div0
+ 15. Parameter Settings for Inferred Entity Instance: converter:converter|lpm_divide:Mod1
+ 16. Port Connectivity Checks: "signdetector:signdetector|fivebitbinaryadder:adder"
+ 17. Port Connectivity Checks: "fivebitbinaryadder:Fivebitbinaryadder"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Sep 27 12:45:33 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; BinaryAdderSubtractorVHDL                   ;
+; Top-level Entity Name              ; BinaryAdderSubtractorVHDL                   ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 88                                          ;
+;     Total combinational functions  ; 87                                          ;
+;     Dedicated logic registers      ; 50                                          ;
+; Total registers                    ; 50                                          ;
+; Total pins                         ; 34                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                            ;
++------------------------------------------------------------------+---------------------------+---------------------------+
+; Option                                                           ; Setting                   ; Default Value             ;
++------------------------------------------------------------------+---------------------------+---------------------------+
+; Device                                                           ; 10M50DAF484C7G            ;                           ;
+; Top-level entity name                                            ; BinaryAdderSubtractorVHDL ; BinaryAdderSubtractorVHDL ;
+; Family name                                                      ; MAX 10                    ; Cyclone V                 ;
+; Use smart compilation                                            ; Off                       ; Off                       ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                        ; On                        ;
+; Enable compact report table                                      ; Off                       ; Off                       ;
+; Restructure Multiplexers                                         ; Auto                      ; Auto                      ;
+; Create Debugging Nodes for IP Cores                              ; Off                       ; Off                       ;
+; Preserve fewer node names                                        ; On                        ; On                        ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable                    ; Enable                    ;
+; Verilog Version                                                  ; Verilog_2001              ; Verilog_2001              ;
+; VHDL Version                                                     ; VHDL_1993                 ; VHDL_1993                 ;
+; State Machine Processing                                         ; Auto                      ; Auto                      ;
+; Safe State Machine                                               ; Off                       ; Off                       ;
+; Extract Verilog State Machines                                   ; On                        ; On                        ;
+; Extract VHDL State Machines                                      ; On                        ; On                        ;
+; Ignore Verilog initial constructs                                ; Off                       ; Off                       ;
+; Iteration limit for constant Verilog loops                       ; 5000                      ; 5000                      ;
+; Iteration limit for non-constant Verilog loops                   ; 250                       ; 250                       ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                        ; On                        ;
+; Infer RAMs from Raw Logic                                        ; On                        ; On                        ;
+; Parallel Synthesis                                               ; On                        ; On                        ;
+; DSP Block Balancing                                              ; Auto                      ; Auto                      ;
+; NOT Gate Push-Back                                               ; On                        ; On                        ;
+; Power-Up Don't Care                                              ; On                        ; On                        ;
+; Remove Redundant Logic Cells                                     ; Off                       ; Off                       ;
+; Remove Duplicate Registers                                       ; On                        ; On                        ;
+; Ignore CARRY Buffers                                             ; Off                       ; Off                       ;
+; Ignore CASCADE Buffers                                           ; Off                       ; Off                       ;
+; Ignore GLOBAL Buffers                                            ; Off                       ; Off                       ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                       ; Off                       ;
+; Ignore LCELL Buffers                                             ; Off                       ; Off                       ;
+; Ignore SOFT Buffers                                              ; On                        ; On                        ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                       ; Off                       ;
+; Optimization Technique                                           ; Balanced                  ; Balanced                  ;
+; Carry Chain Length                                               ; 70                        ; 70                        ;
+; Auto Carry Chains                                                ; On                        ; On                        ;
+; Auto Open-Drain Pins                                             ; On                        ; On                        ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                       ; Off                       ;
+; Auto ROM Replacement                                             ; On                        ; On                        ;
+; Auto RAM Replacement                                             ; On                        ; On                        ;
+; Auto DSP Block Replacement                                       ; On                        ; On                        ;
+; Auto Shift Register Replacement                                  ; Auto                      ; Auto                      ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                      ; Auto                      ;
+; Auto Clock Enable Replacement                                    ; On                        ; On                        ;
+; Strict RAM Replacement                                           ; Off                       ; Off                       ;
+; Allow Synchronous Control Signals                                ; On                        ; On                        ;
+; Force Use of Synchronous Clear Signals                           ; Off                       ; Off                       ;
+; Auto RAM Block Balancing                                         ; On                        ; On                        ;
+; Auto RAM to Logic Cell Conversion                                ; Off                       ; Off                       ;
+; Auto Resource Sharing                                            ; Off                       ; Off                       ;
+; Allow Any RAM Size For Recognition                               ; Off                       ; Off                       ;
+; Allow Any ROM Size For Recognition                               ; Off                       ; Off                       ;
+; Allow Any Shift Register Size For Recognition                    ; Off                       ; Off                       ;
+; Use LogicLock Constraints during Resource Balancing              ; On                        ; On                        ;
+; Ignore translate_off and synthesis_off directives                ; Off                       ; Off                       ;
+; Timing-Driven Synthesis                                          ; On                        ; On                        ;
+; Report Parameter Settings                                        ; On                        ; On                        ;
+; Report Source Assignments                                        ; On                        ; On                        ;
+; Report Connectivity Checks                                       ; On                        ; On                        ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                       ; Off                       ;
+; Synchronization Register Chain Length                            ; 2                         ; 2                         ;
+; Power Optimization During Synthesis                              ; Normal compilation        ; Normal compilation        ;
+; HDL message level                                                ; Level2                    ; Level2                    ;
+; Suppress Register Optimization Related Messages                  ; Off                       ; Off                       ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                      ; 5000                      ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                      ; 5000                      ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                       ; 100                       ;
+; Clock MUX Protection                                             ; On                        ; On                        ;
+; Auto Gated Clock Conversion                                      ; Off                       ; Off                       ;
+; Block Design Naming                                              ; Auto                      ; Auto                      ;
+; SDC constraint protection                                        ; Off                       ; Off                       ;
+; Synthesis Effort                                                 ; Auto                      ; Auto                      ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                        ; On                        ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                       ; Off                       ;
+; Analysis & Synthesis Message Level                               ; Medium                    ; Medium                    ;
+; Disable Register Merging Across Hierarchies                      ; Auto                      ; Auto                      ;
+; Resource Aware Inference For Block RAM                           ; On                        ; On                        ;
++------------------------------------------------------------------+---------------------------+---------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                          ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+; BCD_to_7_segment.vhd             ; yes             ; User VHDL File               ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BCD_to_7_segment.vhd          ;         ;
+; converter.vhd                    ; yes             ; User VHDL File               ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd                 ;         ;
+; fulladder.vhd                    ; yes             ; User VHDL File               ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fulladder.vhd                 ;         ;
+; BinaryAdderSubtractorVHDL.vhd    ; yes             ; User VHDL File               ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd ;         ;
+; fivebitbinaryadder.vhd           ; yes             ; User VHDL File               ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fivebitbinaryadder.vhd        ;         ;
+; signdetector.vhd                 ; yes             ; User VHDL File               ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/signdetector.vhd              ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_divide.tdf                                 ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/abs_divider.inc                                ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/sign_div_unsign.inc                            ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc                                 ;         ;
+; db/lpm_divide_akl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/lpm_divide_akl.tdf         ;         ;
+; db/sign_div_unsign_9kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/sign_div_unsign_9kh.tdf    ;         ;
+; db/alt_u_div_see.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/alt_u_div_see.tdf          ;         ;
+; db/add_sub_t3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/add_sub_t3c.tdf            ;         ;
+; db/add_sub_u3c.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/add_sub_u3c.tdf            ;         ;
+; db/lpm_divide_6sl.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/lpm_divide_6sl.tdf         ;         ;
+; db/sign_div_unsign_8kh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/sign_div_unsign_8kh.tdf    ;         ;
+; db/alt_u_div_qee.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/alt_u_div_qee.tdf          ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 88        ;
+;                                             ;           ;
+; Total combinational functions               ; 87        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 25        ;
+;     -- 3 input functions                    ; 30        ;
+;     -- <=2 input functions                  ; 32        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 73        ;
+;     -- arithmetic mode                      ; 14        ;
+;                                             ;           ;
+; Total registers                             ; 50        ;
+;     -- Dedicated logic registers            ; 50        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 34        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; CLK~input ;
+; Maximum fan-out                             ; 50        ;
+; Total fan-out                               ; 406       ;
+; Average fan-out                             ; 1.98      ;
++---------------------------------------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                         ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; Compilation Hierarchy Node                 ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                            ; Entity Name               ; Library Name ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+; |BinaryAdderSubtractorVHDL                 ; 87 (0)              ; 50 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 34   ; 0            ; 0          ; |BinaryAdderSubtractorVHDL                                                                                                                     ; BinaryAdderSubtractorVHDL ; work         ;
+;    |BCD_to_7_segment:sevenseg1|            ; 7 (7)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|BCD_to_7_segment:sevenseg1                                                                                          ; BCD_to_7_segment          ; work         ;
+;    |BCD_to_7_segment:sevenseg2|            ; 6 (6)               ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|BCD_to_7_segment:sevenseg2                                                                                          ; BCD_to_7_segment          ; work         ;
+;    |BCD_to_7_segment:sevenseg3|            ; 4 (4)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|BCD_to_7_segment:sevenseg3                                                                                          ; BCD_to_7_segment          ; work         ;
+;    |converter:converter|                   ; 47 (10)             ; 14 (14)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter                                                                                                 ; converter                 ; work         ;
+;       |lpm_divide:Div0|                    ; 17 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Div0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_6sl:auto_generated|   ; 17 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Div0|lpm_divide_6sl:auto_generated                                                   ; lpm_divide_6sl            ; work         ;
+;             |sign_div_unsign_8kh:divider|  ; 17 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Div0|lpm_divide_6sl:auto_generated|sign_div_unsign_8kh:divider                       ; sign_div_unsign_8kh       ; work         ;
+;                |alt_u_div_qee:divider|     ; 17 (17)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Div0|lpm_divide_6sl:auto_generated|sign_div_unsign_8kh:divider|alt_u_div_qee:divider ; alt_u_div_qee             ; work         ;
+;       |lpm_divide:Mod0|                    ; 20 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Mod0                                                                                 ; lpm_divide                ; work         ;
+;          |lpm_divide_akl:auto_generated|   ; 20 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Mod0|lpm_divide_akl:auto_generated                                                   ; lpm_divide_akl            ; work         ;
+;             |sign_div_unsign_9kh:divider|  ; 20 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Mod0|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider                       ; sign_div_unsign_9kh       ; work         ;
+;                |alt_u_div_see:divider|     ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|converter:converter|lpm_divide:Mod0|lpm_divide_akl:auto_generated|sign_div_unsign_9kh:divider|alt_u_div_see:divider ; alt_u_div_see             ; work         ;
+;    |fivebitbinaryadder:Fivebitbinaryadder| ; 11 (1)              ; 10 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder                                                                               ; fivebitbinaryadder        ; work         ;
+;       |fulladder:FA1|                      ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA1                                                                 ; fulladder                 ; work         ;
+;       |fulladder:FA2|                      ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA2                                                                 ; fulladder                 ; work         ;
+;       |fulladder:FA3|                      ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA3                                                                 ; fulladder                 ; work         ;
+;       |fulladder:FA4|                      ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA4                                                                 ; fulladder                 ; work         ;
+;       |fulladder:FA5|                      ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA5                                                                 ; fulladder                 ; work         ;
+;    |signdetector:signdetector|             ; 12 (4)              ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector                                                                                           ; signdetector              ; work         ;
+;       |fivebitbinaryadder:adder|           ; 8 (0)               ; 8 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder                                                                  ; fivebitbinaryadder        ; work         ;
+;          |fulladder:FA1|                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA1                                                    ; fulladder                 ; work         ;
+;          |fulladder:FA2|                   ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA2                                                    ; fulladder                 ; work         ;
+;          |fulladder:FA3|                   ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA3                                                    ; fulladder                 ; work         ;
+;          |fulladder:FA4|                   ; 2 (2)               ; 2 (2)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA4                                                    ; fulladder                 ; work         ;
+;          |fulladder:FA5|                   ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |BinaryAdderSubtractorVHDL|signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA5                                                    ; fulladder                 ; work         ;
++--------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                  ;
++--------------------------------------------------------------------+--------------------------------------------------------------------------------+
+; Register name                                                      ; Reason for Removal                                                             ;
++--------------------------------------------------------------------+--------------------------------------------------------------------------------+
+; converter:converter|BCD_digit_3[1,3]                               ; Stuck at VCC due to stuck port data_in                                         ;
+; signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA1|s ; Merged with signdetector:signdetector|fivebitbinaryadder:adder|fulladder:FA1|c ;
+; BCD_to_7_segment:sevenseg3|seven_seg[1..3]                         ; Stuck at VCC due to stuck port data_in                                         ;
+; converter:converter|signal_integer2[2,3]                           ; Stuck at GND due to stuck port data_in                                         ;
+; converter:converter|BCD_digit_3[2]                                 ; Merged with converter:converter|BCD_digit_2[2]                                 ;
+; converter:converter|BCD_digit_2[3]                                 ; Merged with converter:converter|BCD_digit_2[2]                                 ;
+; Total Number of Removed Registers = 10                             ;                                                                                ;
++--------------------------------------------------------------------+--------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                        ;
++------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; Register name                      ; Reason for Removal        ; Registers Removed due to This Register                                            ;
++------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+; converter:converter|BCD_digit_3[3] ; Stuck at VCC              ; BCD_to_7_segment:sevenseg3|seven_seg[1], BCD_to_7_segment:sevenseg3|seven_seg[2], ;
+;                                    ; due to stuck port data_in ; BCD_to_7_segment:sevenseg3|seven_seg[3]                                           ;
++------------------------------------+---------------------------+-----------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 50    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 8     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 6     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fivebitbinaryadder:Fivebitbinaryadder ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: signdetector:signdetector|fivebitbinaryadder:adder ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; n              ; 5     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: converter:converter|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                                    ;
+; LPM_WIDTHD             ; 5              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_akl ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: converter:converter|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                                    ;
+; LPM_WIDTHD             ; 4              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_6sl ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: converter:converter|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------------+
+; Parameter Name         ; Value          ; Type                                       ;
++------------------------+----------------+--------------------------------------------+
+; LPM_WIDTHN             ; 5              ; Untyped                                    ;
+; LPM_WIDTHD             ; 5              ; Untyped                                    ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                    ;
+; LPM_PIPELINE           ; 0              ; Untyped                                    ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                    ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                    ;
+; CBXI_PARAMETER         ; lpm_divide_akl ; Untyped                                    ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                    ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                    ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                 ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                               ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                               ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                             ;
++------------------------+----------------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "signdetector:signdetector|fivebitbinaryadder:adder"                                    ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; b[4..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b[0]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; m       ; Input  ; Info     ; Stuck at GND                                                                        ;
+; c       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; v       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fivebitbinaryadder:Fivebitbinaryadder"                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; c    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 34                          ;
+; cycloneiii_ff         ; 50                          ;
+;     CLR               ; 8                           ;
+;     ENA               ; 6                           ;
+;     plain             ; 36                          ;
+; cycloneiii_lcell_comb ; 88                          ;
+;     arith             ; 14                          ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 10                          ;
+;     normal            ; 74                          ;
+;         0 data inputs ; 5                           ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 20                          ;
+;         4 data inputs ; 25                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.70                        ;
+; Average LUT depth     ; 2.50                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Wed Sep 27 12:45:18 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off BinaryAdderSubtractorVHDL -c BinaryAdderSubtractorVHDL
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file bcd_to_7_segment.vhd
+    Info (12022): Found design unit 1: BCD_to_7_segment-data_process File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BCD_to_7_segment.vhd Line: 11
+    Info (12023): Found entity 1: BCD_to_7_segment File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BCD_to_7_segment.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file converter.vhd
+    Info (12022): Found design unit 1: converter-Structural File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 18
+    Info (12023): Found entity 1: converter File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file fulladder.vhd
+    Info (12022): Found design unit 1: fulladder-Structural File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fulladder.vhd Line: 10
+    Info (12023): Found entity 1: fulladder File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fulladder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file binaryaddersubtractorvhdl.vhd
+    Info (12022): Found design unit 1: BinaryAdderSubtractorVHDL-Structural File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 17
+    Info (12023): Found entity 1: BinaryAdderSubtractorVHDL File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file fivebitbinaryadder.vhd
+    Info (12022): Found design unit 1: fivebitbinaryadder-Structural File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fivebitbinaryadder.vhd Line: 15
+    Info (12023): Found entity 1: fivebitbinaryadder File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fivebitbinaryadder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file signdetector.vhd
+    Info (12022): Found design unit 1: signdetector-Structural File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/signdetector.vhd Line: 13
+    Info (12023): Found entity 1: signdetector File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/signdetector.vhd Line: 5
+Info (12127): Elaborating entity "BinaryAdderSubtractorVHDL" for the top level hierarchy
+Info (12129): Elaborating entity "fivebitbinaryadder" using architecture "A:structural" for hierarchy "fivebitbinaryadder:Fivebitbinaryadder" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 27
+Warning (10541): VHDL Signal Declaration warning at fivebitbinaryadder.vhd(11): used implicit default value for signal "c" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fivebitbinaryadder.vhd Line: 11
+Info (12128): Elaborating entity "fulladder" for hierarchy "fivebitbinaryadder:Fivebitbinaryadder|fulladder:FA1" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/fivebitbinaryadder.vhd Line: 23
+Info (12129): Elaborating entity "signdetector" using architecture "A:structural" for hierarchy "signdetector:signdetector" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 36
+Warning (10540): VHDL Signal Declaration warning at signdetector.vhd(15): used explicit default value for signal "plusone" because signal was never assigned a value File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/signdetector.vhd Line: 15
+Info (12129): Elaborating entity "converter" using architecture "A:structural" for hierarchy "converter:converter" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 43
+Info (12129): Elaborating entity "BCD_to_7_segment" using architecture "A:data_process" for hierarchy "BCD_to_7_segment:sevenseg1" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 54
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "converter:converter|Mod0" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 34
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "converter:converter|Div0" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "converter:converter|Mod1" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 35
+Info (12130): Elaborated megafunction instantiation "converter:converter|lpm_divide:Mod0" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 34
+Info (12133): Instantiated megafunction "converter:converter|lpm_divide:Mod0" with the following parameter: File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 34
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_akl.tdf
+    Info (12023): Found entity 1: lpm_divide_akl File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/lpm_divide_akl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9kh File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/sign_div_unsign_9kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_see.tdf
+    Info (12023): Found entity 1: alt_u_div_see File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/alt_u_div_see.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_t3c.tdf
+    Info (12023): Found entity 1: add_sub_t3c File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/add_sub_t3c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_u3c.tdf
+    Info (12023): Found entity 1: add_sub_u3c File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/add_sub_u3c.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "converter:converter|lpm_divide:Div0" File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 35
+Info (12133): Instantiated megafunction "converter:converter|lpm_divide:Div0" with the following parameter: File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/converter.vhd Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "5"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_6sl.tdf
+    Info (12023): Found entity 1: lpm_divide_6sl File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/lpm_divide_6sl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_8kh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_8kh File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/sign_div_unsign_8kh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qee.tdf
+    Info (12023): Found entity 1: alt_u_div_qee File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/db/alt_u_div_qee.tdf Line: 27
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "SEVEN_SEG_3[1]" is stuck at VCC File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 14
+    Warning (13410): Pin "SEVEN_SEG_3[2]" is stuck at VCC File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 14
+    Warning (13410): Pin "SEVEN_SEG_3[3]" is stuck at VCC File: C:/Users/ATOMIC_LAPTOP/Desktop/MyQuartusStuff/BinaryAdderSubtractorVHDL/BinaryAdderSubtractorVHDL.vhd Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 122 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 21 output pins
+    Info (21061): Implemented 88 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4799 megabytes
+    Info: Processing ended: Wed Sep 27 12:45:33 2023
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:16
+
+

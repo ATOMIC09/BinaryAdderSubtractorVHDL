@@ -1,0 +1,20 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity binaryadder is
+generic (N ;: integer := 5);
+port(x, y, z :in std_logic_vector(N-1 downto 0);
+		  s, c :in std_logic_vector(N-1 downto 0));
+end binaryadder;
+
+architecture Structural of binaryadder is
+	component fulladder is
+		port(x, y, z :in std_logic;
+			  	s, c :out std_logic);
+	end component;
+	
+	begin 
+		gen_fulladder for j in 0 to N-1 generate
+			fa : fulladder port map(x(j), y(j), z(j), s(j), c(j));
+		end generate;
+	end Structural;
